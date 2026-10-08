@@ -1,0 +1,135 @@
+/* Design Tokens */
+:root {
+  --color-bg: linear-gradient(#f5f7fa, #e9eef5);
+  --color-card: #ffffff;
+  --color-text: #1f2933;
+  --color-muted: #9aa5b1;
+  --color-accent: #3b82f6;
+  --color-danger: #ef4444;
+  --font-family: system-ui, -apple-system, sans-serif;
+  --space-base: 8px;
+}
+
+/* Global Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  height: 100%;
+  font-family: var(--font-family);
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+/* Layout */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: calc(var(--space-base) * 2);
+}
+.card {
+  background: var(--color-card);
+  border-radius: calc(var(--space-base) * 2);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 420px;
+  padding: calc(var(--space-base) * 3);
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: calc(var(--space-base) * 3);
+}
+.title {
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+/* Form */
+.task-form {
+  display: flex;
+  gap: var(--space-base);
+  margin-bottom: calc(var(--space-base) * 2);
+}
+.task-input {
+  flex: 1;
+  padding: calc(var(--space-base) * 1.5);
+  border: 1px solid var(--color-muted);
+  border-radius: calc(var(--space-base) * 0.5);
+  font-size: 1rem;
+}
+.add-btn {
+  background: var(--color-accent);
+  color: #fff;
+  border: none;
+  border-radius: calc(var(--space-base) * 0.5);
+  padding: 0 calc(var(--space-base) * 2);
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s ease;
+}
+.add-btn:hover {
+  background: #2563eb; /* darker accent */
+}
+
+/* Task List */
+.task-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-base);
+}
+.task-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: calc(var(--space-base) * 1.5);
+  background: #f9fafb;
+  border-radius: calc(var(--space-base) * 0.5);
+  border: 1px solid var(--color-muted);
+}
+.task-list li label {
+  flex: 1;
+  margin-left: calc(var(--space-base) * 0.5);
+  cursor: pointer;
+}
+.task-list li input[type="checkbox"] {
+  width: 1rem;
+  height: 1rem;
+  accent-color: var(--color-accent);
+}
+.task-list li .delete-btn {
+  background: transparent;
+  border: none;
+  color: var(--color-danger);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0 var(--space-base);
+}
+.task-list li .delete-btn:hover {
+  opacity: 0.8;
+}
+
+/* Completed State */
+.completed label {
+  text-decoration: line-through;
+  color: var(--color-muted);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .card {
+    padding: calc(var(--space-base) * 2);
+  }
+  .title {
+    font-size: 1.5rem;
+  }
+  .add-btn {
+    padding: 0 calc(var(--space-base) * 1.5);
+  }
+}
